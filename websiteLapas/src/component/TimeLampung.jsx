@@ -1,21 +1,20 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 
-function TimeLampung() {
-  const [timeData, setTimeData] = useState(null);
+const Clock = () => {
+  const [time, setTime] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch time data from API
     const fetchTime = async () => {
       try {
-        const response = await axios.get('http://dateandtimeapi.com/api/v1/timezone/Asia/Jakarta');
-        setTimeData(response.data);
-        setLoading(false);
-      } catch (err) {
-        setError(err);
-        setLoading(false);
+        const response = await axios.get('https://worldtimeapi.org/api/timezone/Asia/Jakarta'); // Pastikan URL benar
+        setTime(response.data.datetime); // Mengambil waktu saat ini
+      } catch (error) {
+        setError(error.message); // Menangkap error
+      } finally {
+        setLoading(false); // Menandakan loading selesai
       }
     };
 
@@ -23,16 +22,14 @@ function TimeLampung() {
   }, []);
 
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error: {error.message}</p>;
+  if (error) return <p>Error: {error}</p>;
 
   return (
     <div>
-      <h2>Waktu di Metro, Lampung</h2>
-      {timeData && (
-        <p>{new Date(timeData.datetime).toLocaleString()}</p>
-      )}
+      <h2>Waktu Saat Ini di Jakarta</h2>
+      <p>{new Date(time).toLocaleString()}</p> {/* Format waktu lokal */}
     </div>
   );
-}
+};
 
-export default TimeLampung;
+export default Clock;

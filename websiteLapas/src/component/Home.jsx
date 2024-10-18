@@ -1,6 +1,6 @@
 import React from 'react';
 import ShowDataLaporan from './showDataLaporan';
-import TimeLampung from './TimeLampung';
+import Clock from './TimeLampung';
 
 function Home() {
   return (
@@ -32,10 +32,9 @@ function Home() {
         </section>
         <section className="border border-2 border-bottom-0 border-success rounded-4 p-3">
           <div className="time-section">
-            <h6 className="text-start">Waktu Sekarang</h6>
             <div className="time" id="time">
                 {/* menampilkan waktu */}
-                <TimeLampung />
+                <Clock />
             </div>
           </div>
         </section>
