@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import DarkModeToggle from './component/DarkModeToggle';
 
 function Navbar() {
@@ -11,28 +12,20 @@ function Navbar() {
       setIsNavbarTogglerVisible(isVisible);
     };
 
-    // Check visibility on mount
     checkNavbarTogglerVisibility();
-
-    // Listen for window resize to check visibility
     window.addEventListener('resize', checkNavbarTogglerVisibility);
-
-    // Clean up the event listener when component unmounts
-    return () => {
-      window.removeEventListener('resize', checkNavbarTogglerVisibility);
-    };
+    return () => window.removeEventListener('resize', checkNavbarTogglerVisibility);
   }, []);
 
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary p-3">
       <div className="container-fluid g-1">
-        <img src="src/assets/logo.png" alt="Logo lapas" width="40" height="34" />
-        <a className="navbar-brand d-flex align-items-center g-1" href="#">
+        <Link className="navbar-brand d-flex align-items-center g-1" to="/">
           <span>Laporan Pos Menara</span>
-          <span id="hid" className='navbar-toggler'>
+          <span id="hid" className="navbar-toggler p-0">
             <DarkModeToggle />
           </span>
-        </a>
+        </Link>
         <button
           className="navbar-toggler"
           type="button"
@@ -47,21 +40,20 @@ function Navbar() {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto">
             <li className="nav-item">
-              <a className="nav-link active" aria-current="page" href="#">
-                Home
-              </a>
+              <Link className="nav-link active" to="/">
+                Halaman utama
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                About
-              </a>
+              <Link className="nav-link" to="/laporan">
+                Buat laporan
+              </Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">
-                Contact
-              </a>
+              <Link className="nav-link" to="#">
+                Hubungi
+              </Link>
             </li>
-            {/* Conditionally hide 'toggle' if navbar-toggler is visible */}
             {!isNavbarTogglerVisible && (
               <li className="nav-item" id="toggle">
                 <DarkModeToggle />

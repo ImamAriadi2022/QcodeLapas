@@ -1,19 +1,22 @@
-import './App.css'
 import React from 'react';
-
-
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Navbar from './navbar';
+import Home from './component/Home';
+import Laporan from './component/laporan';
 
 function App() {
   return (
-    <>
-    <main className=''>
-      <div className="container">
-      <h1 className="text-center mt-5">Hello, Bootstrap 5.3 with React and Vite!</h1>
-    </div>
-    </main>
-    </>
-  )
+    <Router>
+      {/* Navbar selalu ditampilkan di semua halaman */}
+      <Navbar />
+
+      {/* Routes untuk halaman yang berbeda */}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/laporan" element={<Laporan />} />
+      </Routes>
+    </Router>
+  );
 }
 
-export default App
+export default App;

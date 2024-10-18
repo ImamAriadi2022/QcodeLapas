@@ -28,7 +28,7 @@ function DarkModeToggle({ onToggle }) {
   return (
     <div className="text-center">
       <button
-        className={`btn ${isDarkMode ? 'btn-dark bg-opacity-0' : 'btn-light bg-opacity-0'}`}
+        className={`btn ${isDarkMode ? 'btn-dark btn-opacity-0' : 'btn-light btn-opacity-0'}`}
         onClick={toggleDarkMode}
         aria-label="Toggle dark mode"
       >
