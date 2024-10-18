@@ -1,0 +1,15 @@
+[
+    {
+      "id": 1,
+      "title": "Laporan 1",
+      "description": "Deskripsi laporan pertama.",
+      "image": "https://via.placeholder.com/150"
+    },
+    {
+      "id": 2,
+      "title": "Laporan 2",
+      "description": "Deskripsi laporan kedua.",
+      "image": "https://via.placeholder.com/150"
+    }
+  ]
+  
