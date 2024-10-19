@@ -33,9 +33,9 @@ const ShowDataLaporan = () => {
       <div className="row d-flex justify-content-center align-items-center pt-3">
         {laporan.map((item) => (
           <div className="col-6 col-md-3 mb-3" key={item.id}>
-            <div className="card h-100">
+            <div className="border p-2" style={{ height: '280px' }}>
               <img src={item.image} className="card-img-top img-fluid" alt={item.title} />
-              <div className="card-body">
+              <div className="p-2 h-100">
                 <h5 className="card-title">{item.title}</h5>
                 <p className="card-text fs-7 fs-md-7 fs-lg-4">{item.description}</p>
               </div>

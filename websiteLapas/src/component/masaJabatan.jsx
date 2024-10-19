@@ -30,7 +30,7 @@ const MasaJabatan = ({ masaAkhir }) => {
             const diffTime = endTime - currentTime; // Selisih waktu
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24)); // Konversi ke hari
 
-            setSisaMasa(diffDays > 0 ? `Masa jabatan berakhir dalam ${diffDays} hari` : `Masa jabatan sudah berakhir`);
+            setSisaMasa(diffDays > 0 ? `Jabatan berakhir dalam ${diffDays} hari` : `Masa jabatan sudah berakhir`);
         }
     }, [currentTime, masaAkhir]);
 
