@@ -28,9 +28,9 @@ const ShowDataLaporan = () => {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mt-4">
-      <h5>Data Laporan</h5>
-      <div className="row">
+    <div id="cardButton1" className="container mt-4">
+      <h5 className="text-center">Data Laporan</h5>
+      <div className="row d-flex justify-content-center align-items-center pt-3">
         {laporan.map((item) => (
           <div className="col-6 col-md-3 mb-3" key={item.id}>
             <div className="card h-100">
@@ -45,7 +45,7 @@ const ShowDataLaporan = () => {
       </div>
       {/* Tombol More Laporan */}
       <div className="text-center mt-4">
-        <button className="btn btn-primary" onClick={() => alert('Navigasi ke halaman lebih banyak laporan')}>
+        <button className="btn btn-success" onClick={() => alert('Navigasi ke halaman lebih banyak laporan')}>
           Selengkapnya
         </button>
       </div>

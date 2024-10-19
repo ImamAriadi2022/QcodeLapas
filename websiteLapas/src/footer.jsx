@@ -8,8 +8,8 @@ const Footer = () => {
                 <div className="row text-center text-md-left">
                     {/* Brand and Description */}
                     <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h5 className="text-uppercase mb-4 font-weight-bold ">YourBrand</h5>
-                        <p>We offer the best web solutions to enhance your digital presence. Stay connected with us through social media and explore our services.</p>
+                        <h5 className="text-uppercase mb-4 font-weight-bold ">Laporan Pos Menara</h5>
+                        <p>Web ini bertujuan sebagai solusi kreatif dalam pengumpulan data laporan pos menara dan untuk melihat pegawai yang ada</p>
                     </div>
 
                     {/* Useful Links */}
@@ -19,13 +19,10 @@ const Footer = () => {
                             <a href="#!" className="" style={{ textDecoration: 'none' }}>Home</a>
                         </p>
                         <p>
-                            <a href="#!" className="" style={{ textDecoration: 'none' }}>About</a>
+                            <a href="#!" className="" style={{ textDecoration: 'none' }}>Laporkan</a>
                         </p>
                         <p>
-                            <a href="#!" className="" style={{ textDecoration: 'none' }}>Services</a>
-                        </p>
-                        <p>
-                            <a href="#!" className="" style={{ textDecoration: 'none' }}>Contact</a>
+                            <a href="#!" className="" style={{ textDecoration: 'none' }}>hubungi saya</a>
                         </p>
                     </div>
 
@@ -33,22 +30,19 @@ const Footer = () => {
                     <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mt-3">
                         <h5 className="text-uppercase mb-4 font-weight-bold ">Contact</h5>
                         <p>
-                            <i className="fas fa-home mr-3"></i> 123 Street Name, City, Country
+                            <i className="fas fa-home mr-3"></i> alamat saya
                         </p>
                         <p>
-                            <i className="fas fa-envelope mr-3"></i> info@yourbrand.com
+                            <i className="fas fa-envelope mr-3"></i> email saya
                         </p>
                         <p>
-                            <i className="fas fa-phone mr-3"></i> +123 456 7890
-                        </p>
-                        <p>
-                            <i className="fas fa-print mr-3"></i> +123 456 7891
+                            <i className="fas fa-phone mr-3"></i> +6239423049
                         </p>
                     </div>
 
                     {/* Social Media Links */}
                     <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mt-3">
-                        <h5 className="text-uppercase mb-4 font-weight-bold ">Follow Us</h5>
+                        <h5 className="text-uppercase mb-4 font-weight-bold ">Sosial Media Saya</h5>
                         <div>
                             <a href="https://facebook.com" className="text-light me-4">
                                 <FaFacebookF size={24} />
