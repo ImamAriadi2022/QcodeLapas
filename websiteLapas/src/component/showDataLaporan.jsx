@@ -29,7 +29,7 @@ const ShowDataLaporan = () => {
 
   return (
     <div className="container mt-4">
-      <h2>Data Laporan</h2>
+      <h5>Data Laporan</h5>
       <div className="row">
         {laporan.map((item) => (
           <div className="col-6 col-md-3 mb-3" key={item.id}>

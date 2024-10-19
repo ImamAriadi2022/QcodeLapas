@@ -1,5 +1,6 @@
 import React from 'react';
 import ShowDataLaporan from './showDataLaporan';
+import ShowDataPegawai from './showDataPegawai';
 import Clock from './TimeLampung';
 
 function Home() {
@@ -27,6 +28,7 @@ function Home() {
             <h6 className="text-start">Data Pegawai</h6>
             <div className="pegawai" id="pegawai">
                 {/* menampilkan data pegawai */}
+                <ShowDataPegawai />
             </div>
           </div>
         </section>

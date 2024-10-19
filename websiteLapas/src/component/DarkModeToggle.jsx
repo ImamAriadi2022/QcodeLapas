@@ -8,14 +8,39 @@ function DarkModeToggle({ onToggle }) {
   useEffect(() => {
     const body = document.body;
     const nav = document.getElementById('navbar'); // Ambil elemen nav
+    const links = document.querySelectorAll('footer a');
+    const headingLima =  document.querySelectorAll('footer h5');
 
     if (isDarkMode) {
       body.setAttribute('data-bs-theme', 'dark');
       nav.classList.add('bg-dark', 'navbar-dark'); // Tambahkan kelas untuk navbar gelap
+      links.forEach((link) => {
+        link.classList.remove('text-dark');
+      });
+      links.forEach((link) => {
+        link.classList.add('text-light');
+      });
+      headingLima.forEach((heading) => {
+        heading.classList.add('text-warning');
+      });
     } else {
       body.setAttribute('data-bs-theme', 'light');
       nav.classList.remove('bg-dark', 'navbar-dark'); // Hapus kelas untuk navbar gelap
-      nav.classList.add('bg-light', 'navbar-light'); // Tambahkan kelas untuk navbar terang
+      nav.classList.add('bg-light', 'navbar-light'); 
+      links.forEach((link) => {
+        link.classList.remove('text-light');
+      });
+      links.forEach((link) => {
+        link.classList.add('text-dark');
+      });
+      // ini buat h5
+      headingLima.forEach((heading) => {
+        heading.classList.remove('text-warning');
+      });
+      headingLima.forEach((heading) => {
+        heading.classList.add('text-success');
+      });
+      // ini buat h5
     }
   }, [isDarkMode]);
 

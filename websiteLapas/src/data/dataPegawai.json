@@ -1,0 +1,16 @@
+[
+    {
+         "id": 1,
+          "title": "Pegawai 1",
+          "description": "Jabatan",
+         "image": "https://via.placeholder.com/150",
+         "Masa": "20/11/2024"
+    },
+    {
+        "id": 2,
+        "title": "Pegawai 2",
+        "description": "Jabatan",
+        "image": "https://via.placeholder.com/150",
+        "Masa": "20/12/2024"
+    }
+]
