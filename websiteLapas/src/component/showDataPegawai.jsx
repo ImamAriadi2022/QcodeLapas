@@ -34,9 +34,9 @@ const ShowDataPegawai = () => {
             <div className="row d-flex justify-content-center align-items-center pt-3">
                 {pegawai.map((item) => (
                     <div className="col-6 col-md-3 mb-3" key={item.id}>
-                        <div className="border p-2" style={{ height: '280px' }}>
+                        <div className="card h-100 d-flex flex-column border p-2">
                             <img src={item.image} className="card-img-top img-fluid" alt={item.title} />
-                            <div className="card-body pt-2 px-1">
+                            <div className="card-body d-flex flex-column justify-content-between">
                                 <h5 className="card-title">{item.title}</h5>
                                 <p className="card-text">{item.description}</p>
                                 <p className="card-text">
