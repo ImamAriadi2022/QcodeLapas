@@ -7,12 +7,10 @@ import { FaHandSparkles } from 'react-icons/fa'; // Import ikon dari react-icons
 
 function Home() {
   // URL gambar yang akan digunakan sebagai background
-  const backgroundImageUrl = fetch('/src/assets/bgHeader.jpg'); // Ganti dengan URL gambar yang diinginkan
-
   return (
     <>
       <header style={{
-        backgroundImage: `url(${backgroundImageUrl})`,
+        backgroundImage: `url('/src/assets/bgHeader.jpg')`,
         backgroundSize: 'cover', // Menjadikan gambar menutupi seluruh area
         backgroundPosition: 'center', // Posisi gambar di tengah
         height: '400px', // Sesuaikan tinggi header sesuai kebutuhan
