@@ -10,7 +10,7 @@ function Home() {
   return (
     <>
       <header style={{
-        backgroundImage: `url('/src/assets/bgHeader.jpg')`,
+        backgroundImage: `url('/assets/bgHeader.jpg')`,
         backgroundSize: 'cover', // Menjadikan gambar menutupi seluruh area
         backgroundPosition: 'center', // Posisi gambar di tengah
         height: '400px', // Sesuaikan tinggi header sesuai kebutuhan
