@@ -7,7 +7,7 @@ import { FaHandSparkles } from 'react-icons/fa'; // Import ikon dari react-icons
 
 function Home() {
   // URL gambar yang akan digunakan sebagai background
-  const backgroundImageUrl = '/src/assets/bgHeader.jpg'; // Ganti dengan URL gambar yang diinginkan
+  const backgroundImageUrl = fetch('/src/assets/bgHeader.jpg'); // Ganti dengan URL gambar yang diinginkan
 
   return (
     <>
