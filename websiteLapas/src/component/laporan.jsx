@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 function Laporan() {
-    const backgroundImage = 'src/assets/bgHeader.jpg';
+    const backgroundImage = '/assets/bgHeader.jpg';
 
     // State untuk laporan
     const [judulLaporan, setJudulLaporan] = useState('');
