@@ -4,6 +4,7 @@ const DetailLaporan = () => {
   const [laporan, setLaporan] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedImage, setSelectedImage] = useState(null); // State untuk gambar yang diperbesar
+  const [selectedDescription, setSelectedDescription] = useState(''); // State untuk deskripsi gambar yang diperbesar
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,6 +20,11 @@ const DetailLaporan = () => {
     item.title.toLowerCase().includes(searchTerm.toLowerCase()) || 
     item.description.toLowerCase().includes(searchTerm.toLowerCase())
   );
+
+  const handleImageClick = (image, description) => {
+    setSelectedImage(image); // Set gambar yang dipilih
+    setSelectedDescription(description); // Set deskripsi yang dipilih
+  };
 
   return (
     <div className="container mt-4">
@@ -43,7 +49,7 @@ const DetailLaporan = () => {
                 src={item.image}
                 className="card-img-top img-fluid"
                 alt={item.title}
-                onClick={() => setSelectedImage(item.image)} // Set gambar yang dipilih
+                onClick={() => handleImageClick(item.image, item.description)} // Set gambar dan deskripsi yang dipilih
                 style={{ cursor: 'pointer' }} // Mengganti kursor saat hover
               />
               <div className="card-body d-flex flex-column justify-content-between">
@@ -85,7 +91,10 @@ const DetailLaporan = () => {
           >
             {/* Tombol Close */}
             <button
-              onClick={() => setSelectedImage(null)} // Tutup popup
+              onClick={() => {
+                setSelectedImage(null); // Tutup popup
+                setSelectedDescription(''); // Reset deskripsi saat tutup
+              }}
               style={{
                 position: 'absolute',
                 top: '20px', // Menaikkan posisi tombol close
@@ -114,6 +123,21 @@ const DetailLaporan = () => {
                 objectFit: 'contain', // Menjaga rasio aspek
               }} 
             />
+            
+            {/* Deskripsi Gambar di Kiri Bawah */}
+            <div
+              style={{
+                position: 'absolute',
+                bottom: '20px',
+                left: '20px',
+                color: 'white',
+                backgroundColor: 'rgba(0, 0, 0, 0.7)', // Latar belakang semi-transparan
+                padding: '10px',
+                borderRadius: '5px',
+              }}
+            >
+              {selectedDescription}
+            </div>
           </div>
         </div>
       )}
