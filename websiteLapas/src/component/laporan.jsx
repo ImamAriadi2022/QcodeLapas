@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 function Laporan() {
     const backgroundImage = 'src/assets/bgHeader.jpg';
@@ -8,6 +8,8 @@ function Laporan() {
     const [pelapor, setPelapor] = useState('');
     const [status, setStatus] = useState('aman');
     const [gambar, setGambar] = useState(null);
+    const [lokasi, setLokasi] = useState('');
+    const [waktu, setWaktu] = useState('');
 
     // State untuk pegawai
     const [showPegawaiForm, setShowPegawaiForm] = useState(false);
@@ -15,6 +17,30 @@ function Laporan() {
     const [namaPegawai, setNamaPegawai] = useState('');
     const [masaJabatan, setMasaJabatan] = useState('');
     const [fotoPegawai, setFotoPegawai] = useState(null);
+
+    // Fetch lokasi otomatis
+    useEffect(() => {
+        const getLocation = () => {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition((position) => {
+                    const { latitude, longitude } = position.coords;
+                    fetch(`https://nominatim.openstreetmap.org/reverse?format=jsonv2&lat=${latitude}&lon=${longitude}`)
+                        .then((response) => response.json())
+                        .then((data) => {
+                            const { village, town, county, state, country } = data.address;
+                            setLokasi(`${village || town}, ${county}, ${state}, ${country}`);
+                        })
+                        .catch((error) => console.error('Error fetching location:', error));
+                });
+            } else {
+                alert("Geolocation tidak didukung oleh browser ini.");
+            }
+        };
+
+        getLocation();
+        const currentTime = new Date().toLocaleString();
+        setWaktu(currentTime);
+    }, []);
 
     // Handler untuk mengirim laporan
     const handleLaporanSubmit = async (e) => {
@@ -24,6 +50,8 @@ function Laporan() {
         formData.append('pelapor', pelapor);
         formData.append('status', status);
         formData.append('gambar', gambar);
+        formData.append('lokasi', lokasi);
+        formData.append('waktu', waktu);
 
         try {
             const response = await fetch('YOUR_API_ENDPOINT_FOR_LAPORAN', {
@@ -125,6 +153,7 @@ function Laporan() {
                     <div className="mb-3">
                         <label htmlFor="gambar" className="form-label">Upload Gambar</label>
                         <input type="file" className="form-control" id="gambar" onChange={(e) => setGambar(e.target.files[0])} required />
+                        <small className="form-text text-muted">Lokasi: {lokasi} | Waktu: {waktu}</small>
                     </div>
                     <button type="submit" className="btn btn-primary">Kirim Laporan</button>
                 </form>

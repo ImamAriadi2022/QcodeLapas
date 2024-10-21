@@ -1,10 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import MasaJabatan from './masaJabatan'; // pastikan nama komponen dan path sesuai
+import MasaJabatan from './masaJabatan'; // Pastikan nama komponen dan path sesuai
+import { useNavigate } from 'react-router-dom';
 
 const ShowDataPegawai = () => {
     const [pegawai, setPegawai] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const fetchData = async () => {
@@ -14,7 +16,7 @@ const ShowDataPegawai = () => {
                     throw new Error('Respon tidak baik: ' + response.status);
                 }
                 const data = await response.json();
-                setPegawai(data); // Set pegawai langsung dari data
+                setPegawai(data);
             } catch (error) {
                 setError(error.message);
             } finally {
@@ -49,7 +51,7 @@ const ShowDataPegawai = () => {
             </div>
             {/* Tombol More Pegawai */}
             <div className="text-center mt-4">
-                <button className="btn btn-success" onClick={() => alert('Navigasi ke halaman lebih banyak pegawai')}>
+                <button className="btn btn-success" onClick={() => navigate('/detail-pegawai')}>
                     Selengkapnya
                 </button>
             </div>

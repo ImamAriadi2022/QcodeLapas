@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const ShowDataLaporan = () => {
   const [laporan, setLaporan] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -13,7 +15,7 @@ const ShowDataLaporan = () => {
           throw new Error('Respon tidak baik: ' + response.status);
         }
         const data = await response.json();
-        setLaporan(data); // Set laporan langsung dari data
+        setLaporan(data);
       } catch (error) {
         setError(error.message);
       } finally {
@@ -43,9 +45,8 @@ const ShowDataLaporan = () => {
           </div>
         ))}
       </div>
-      {/* Tombol More Laporan */}
       <div className="text-center mt-4">
-        <button className="btn btn-success" onClick={() => alert('Navigasi ke halaman lebih banyak laporan')}>
+        <button className="btn btn-success" onClick={() => navigate('/detail-laporan')}>
           Selengkapnya
         </button>
       </div>
