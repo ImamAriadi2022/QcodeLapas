@@ -8,7 +8,7 @@ const DetailPegawai = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch('src/data/dataPegawai.json');
+            const response = await fetch('/data/dataPegawai.json');
             const data = await response.json();
             setPegawai(data);
         };

@@ -11,7 +11,7 @@ const ShowDataPegawai = () => {
     useEffect(() => {
         const fetchData = async () => {
             try {
-                const response = await fetch('src/data/dataPegawai.json'); // Pastikan path sesuai
+                const response = await fetch('/data/dataPegawai.json'); // Pastikan path sesuai
                 if (!response.ok) {
                     throw new Error('Respon tidak baik: ' + response.status);
                 }

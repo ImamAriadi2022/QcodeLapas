@@ -10,7 +10,7 @@ const ShowDataLaporan = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch('src/data/laporan.json'); // Pastikan path sesuai
+        const response = await fetch('/data/laporan.json'); // Pastikan path sesuai
         if (!response.ok) {
           throw new Error('Respon tidak baik: ' + response.status);
         }
