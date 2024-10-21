@@ -7,7 +7,7 @@ const DetailLaporan = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch('src/data/laporan.json');
+      const response = await fetch('/src/data/laporan.json');
       const data = await response.json();
       setLaporan(data);
     };
