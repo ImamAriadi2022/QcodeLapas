@@ -11,7 +11,7 @@ const DetailLaporan = () => {
       const data = await response.json();
       setLaporan(data);
     };
-    
+
     fetchData();
   }, []);
 
@@ -65,7 +65,7 @@ const DetailLaporan = () => {
             left: 0,
             width: '100%',
             height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            backgroundColor: 'rgba(0, 0, 0, 0.9)', // Membuat latar belakang lebih gelap
             display: 'flex',
             justifyContent: 'center',
             alignItems: 'center',
@@ -75,9 +75,12 @@ const DetailLaporan = () => {
           <div
             style={{
               position: 'relative',
-              padding: '20px',
-              backgroundColor: '#fff',
-              borderRadius: '8px',
+              padding: '0', // Menghapus padding
+              backgroundColor: 'transparent', // Menghapus latar belakang
+              borderRadius: '0', // Menghapus border radius
+              width: '100%', // Memastikan lebar penuh
+              height: '100%', // Memastikan tinggi penuh
+              overflow: 'hidden', // Menyembunyikan overflow
             }}
           >
             {/* Tombol Close */}
@@ -85,23 +88,32 @@ const DetailLaporan = () => {
               onClick={() => setSelectedImage(null)} // Tutup popup
               style={{
                 position: 'absolute',
-                top: '10px',
-                right: '10px',
+                top: '20px', // Menaikkan posisi tombol close
+                right: '20px',
                 backgroundColor: 'red',
                 color: 'white',
                 border: 'none',
                 borderRadius: '50%',
-                width: '30px',
-                height: '30px',
-                fontSize: '16px',
+                width: '40px', // Memperbesar tombol close
+                height: '40px',
+                fontSize: '18px',
                 cursor: 'pointer',
+                zIndex: 1001, // Memastikan tombol di atas gambar
               }}
             >
               &times;
             </button>
 
             {/* Gambar yang diperbesar */}
-            <img src={selectedImage} alt="Detail" style={{ maxWidth: '100%', maxHeight: '80vh' }} />
+            <img 
+              src={selectedImage} 
+              alt="Detail" 
+              style={{ 
+                width: '100%', // Memastikan gambar memenuhi lebar
+                height: '100%', // Memastikan gambar memenuhi tinggi
+                objectFit: 'contain', // Menjaga rasio aspek
+              }} 
+            />
           </div>
         </div>
       )}
